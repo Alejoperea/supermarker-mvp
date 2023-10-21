@@ -37,7 +37,60 @@ namespace Supermarket_mvp.Views
                     SearchEvent?.Invoke(this, EventArgs.Empty);
                 }
             };
+
+            BtnNew.Click += delegate
+            {
+                AddNewEvent?.Invoke(this, EventArgs.Empty);
+
+                tabControl1.TabPages.Remove(tabPageProductList);
+                tabControl1.TabPages.Add(tabPageProducDetail);
+                tabPageProducDetail.Text = "Add New Product"; // cambia el titulo de la pestalla
+
+            };
+            BtnEdit.Click += delegate
+            {
+                EditEvent?.Invoke(this, EventArgs.Empty);
+
+                tabControl1.TabPages.Remove(tabPageProductList);
+                tabControl1.TabPages.Add(tabPageProducDetail);
+                tabPageProducDetail.Text = "Edit Product"; // cambia el titulo de la pestalla
+            };
+            BtnDelete.Click += delegate
+            {
+                DeleteEvent?.Invoke(this, EventArgs.Empty);
+                var result = MessageBox.Show(
+                   "Are you sure you went to delete the selected Product",
+                   "Warning",
+                   MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    DeleteEvent?.Invoke(this, EventArgs.Empty);
+                    MessageBox.Show(Message);
+                }
+            };
+            BtnSave.Click += delegate
+             {
+                 SaveEvent?.Invoke(this, EventArgs.Empty);
+
+                 if (isSuccessful) // si grabrar fue exitoso 
+                 {
+                     tabControl1.TabPages.Remove(tabPageProductList);
+                     tabControl1.TabPages.Add(tabPageProductList);
+                 }
+                 MessageBox.Show(Message);
+             };
+
+            BtnCancel.Click += delegate
+            {
+                CancelEvent?.Invoke(this, EventArgs.Empty);
+
+                tabControl1.TabPages.Remove(tabPageProducDetail);
+                tabControl1.TabPages.Add(tabPageProductList);
+
+            };
         }
+
 
         public string ProductsId
         {

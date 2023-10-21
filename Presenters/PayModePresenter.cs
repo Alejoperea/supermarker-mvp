@@ -81,7 +81,22 @@ namespace Supermarket_mvp.Presenters
 
         private void DeleteSelectedPayMode(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            try
+                // se recupera el objeto de la fila seleccionada del datagri
+            {
+                var payMode = (PayModeModel)payModeBindingSource.Current;
+                // se invoca el metodo delete del repositorio pasandole el Id del Pay Mode
+                repository.Delete(payMode.Id);
+                view.IsSuccessful = true;
+                view.Message = "Pay Mode deleted successfully";
+                loadAllPayModeList();
+            }
+            catch (Exception ex)
+            {
+
+                view.IsSuccessful = false;
+                view.Message = "An error ocurred, could not deleted pay mode";
+            }
         }
 
         private void SavePayMode(object? sender, EventArgs e)
