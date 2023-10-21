@@ -41,3 +41,4 @@ C:\Users\milal\OneDrive\Escritorio\Lenguaje Informatico\Supermarket-mvp\bin\Debu
 C:\Users\milal\OneDrive\Escritorio\Lenguaje Informatico\Supermarket-mvp\bin\Debug\net7.0-windows\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\Users\milal\OneDrive\Escritorio\Lenguaje Informatico\Supermarket-mvp\obj\Debug\net7.0-windows\Supermarket-mvp.csproj.AssemblyReference.cache
 C:\Users\milal\OneDrive\Escritorio\Lenguaje Informatico\Supermarket-mvp\obj\Debug\net7.0-windows\Supermarket-mvp.csproj.CopyComplete
+C:\Users\milal\OneDrive\Escritorio\Lenguaje Informatico\Supermarket-mvp\obj\Debug\net7.0-windows\Supermarket_mvp.Views.MainView.resources
