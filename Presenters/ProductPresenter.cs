@@ -18,6 +18,8 @@ namespace Supermarket_mvp.Presenters
 
         public ProductPresenter(IProductView view, IProductRepository repository)
         {
+           this.productBindingSource = new BindingSource();
+
             this.view = view;
             this.repository = repository;
 
@@ -29,7 +31,7 @@ namespace Supermarket_mvp.Presenters
             this.view.SaveEvent += SaveProduct;
             this.view.CancelEvent += CancelAction;
 
-            this.view.SetProductListBildingSource(productBindingSource); // posible error aca
+            this.view.SetProductListBildingSource(productBindingSource); 
 
             loadAllProductList();
 

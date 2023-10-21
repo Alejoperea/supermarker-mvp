@@ -81,9 +81,10 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(134, 30);
             label1.Name = "label1";
-            label1.Size = new Size(49, 15);
+            label1.Size = new Size(84, 25);
             label1.TabIndex = 0;
             label1.Text = "Product";
             // 
@@ -91,10 +92,11 @@
             // 
             tabControl1.Controls.Add(tabPageProductList);
             tabControl1.Controls.Add(tabPageProducDetail);
-            tabControl1.Location = new Point(12, 103);
+            tabControl1.Dock = DockStyle.Fill;
+            tabControl1.Location = new Point(0, 100);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(613, 284);
+            tabControl1.Size = new Size(800, 350);
             tabControl1.TabIndex = 1;
             // 
             // tabPageProductList
@@ -110,7 +112,7 @@
             tabPageProductList.Location = new Point(4, 24);
             tabPageProductList.Name = "tabPageProductList";
             tabPageProductList.Padding = new Padding(3);
-            tabPageProductList.Size = new Size(605, 256);
+            tabPageProductList.Size = new Size(792, 322);
             tabPageProductList.TabIndex = 0;
             tabPageProductList.Text = "Product List";
             tabPageProductList.UseVisualStyleBackColor = true;
@@ -119,7 +121,7 @@
             // 
             BtnClose.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BtnClose.Image = Properties.Resources.cerrar;
-            BtnClose.Location = new Point(473, 201);
+            BtnClose.Location = new Point(660, 201);
             BtnClose.Name = "BtnClose";
             BtnClose.Size = new Size(75, 49);
             BtnClose.TabIndex = 7;
@@ -129,7 +131,7 @@
             // 
             BtnDelete.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BtnDelete.Image = Properties.Resources.delete;
-            BtnDelete.Location = new Point(473, 142);
+            BtnDelete.Location = new Point(660, 142);
             BtnDelete.Name = "BtnDelete";
             BtnDelete.Size = new Size(75, 53);
             BtnDelete.TabIndex = 6;
@@ -139,7 +141,7 @@
             // 
             BtnEdit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BtnEdit.Image = Properties.Resources.edit;
-            BtnEdit.Location = new Point(473, 93);
+            BtnEdit.Location = new Point(660, 93);
             BtnEdit.Name = "BtnEdit";
             BtnEdit.Size = new Size(75, 43);
             BtnEdit.TabIndex = 5;
@@ -149,7 +151,7 @@
             // 
             BtnNew.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BtnNew.Image = Properties.Resources._new;
-            BtnNew.Location = new Point(473, 34);
+            BtnNew.Location = new Point(660, 34);
             BtnNew.Name = "BtnNew";
             BtnNew.Size = new Size(75, 53);
             BtnNew.TabIndex = 4;
@@ -166,14 +168,14 @@
             DgProduct.Name = "DgProduct";
             DgProduct.ReadOnly = true;
             DgProduct.RowTemplate.Height = 25;
-            DgProduct.Size = new Size(386, 150);
+            DgProduct.Size = new Size(573, 216);
             DgProduct.TabIndex = 3;
             // 
             // BtnSearch
             // 
             BtnSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BtnSearch.Image = Properties.Resources.search_small;
-            BtnSearch.Location = new Point(363, 20);
+            BtnSearch.Location = new Point(550, 20);
             BtnSearch.Name = "BtnSearch";
             BtnSearch.Size = new Size(75, 50);
             BtnSearch.TabIndex = 2;
@@ -185,7 +187,7 @@
             TxtSearch.Location = new Point(16, 34);
             TxtSearch.Name = "TxtSearch";
             TxtSearch.PlaceholderText = "Data to search";
-            TxtSearch.Size = new Size(341, 23);
+            TxtSearch.Size = new Size(528, 23);
             TxtSearch.TabIndex = 1;
             // 
             // label2
