@@ -36,6 +36,62 @@ namespace Supermarket_mvp.Views
                     SearchEvent?.Invoke(this, EventArgs.Empty);
                 }
             };
+
+            BtnNew.Click += delegate
+            {
+                AddNewEvent?.Invoke(this, EventArgs.Empty);
+
+                tabControl1.TabPages.Remove(tabPageProvidersList);
+                tabControl1.TabPages.Add(tabPageProvidersDetail);
+                tabPageProvidersDetail.Text = "Add New Providers"; // cambia el titulo de la pestalla
+
+            };
+
+            BtnEdit.Click += delegate
+            {
+                EditEvent?.Invoke(this, EventArgs.Empty);
+
+                tabControl1.TabPages.Remove(tabPageProvidersList);
+                tabControl1.TabPages.Add(tabPageProvidersDetail);
+                tabPageProvidersDetail.Text = "Edit Providers"; // cambia el titulo de la pestalla
+
+            };
+
+            BtnSave.Click += delegate
+            {
+                SaveEvent?.Invoke(this, EventArgs.Empty);
+
+                if (isSuccessful) // si grabrar fue exitoso 
+                {
+                    tabControl1.TabPages.Remove(tabPageProvidersList);
+                    tabControl1.TabPages.Add(tabPageProvidersList);
+                }
+                MessageBox.Show(Message);
+            };
+
+            BtnCancel.Click += delegate
+            {
+                CancelEvent?.Invoke(this, EventArgs.Empty);
+
+                tabControl1.TabPages.Remove(tabPageProvidersDetail);
+                tabControl1.TabPages.Add(tabPageProvidersList);
+
+            };
+
+            BtnDelete.Click += delegate
+            {
+                DeleteEvent?.Invoke(this, EventArgs.Empty);
+                var result = MessageBox.Show(
+                   "Are you sure you went to delete the selected Providers",
+                   "Warning",
+                   MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    DeleteEvent?.Invoke(this, EventArgs.Empty);
+                    MessageBox.Show(Message);
+                }
+            };
         }
 
         public string ProvidersId

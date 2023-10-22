@@ -256,8 +256,11 @@
             // 
             TxtProvidersId.Location = new Point(28, 40);
             TxtProvidersId.Name = "TxtProvidersId";
+            TxtProvidersId.ReadOnly = true;
             TxtProvidersId.Size = new Size(100, 23);
             TxtProvidersId.TabIndex = 3;
+            TxtProvidersId.Text = "0";
+            TxtProvidersId.TextAlign = HorizontalAlignment.Right;
             // 
             // label5
             // 
