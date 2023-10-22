@@ -42,14 +42,14 @@
             TxtSearch = new TextBox();
             label2 = new Label();
             tabPageProvidersDetail = new TabPage();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            TxtProvidersId = new TextBox();
-            TxtProvidersName = new TextBox();
-            TxtProvidersObservation = new TextBox();
-            BtnSave = new Button();
             BtnCancel = new Button();
+            BtnSave = new Button();
+            TxtProvidersObservation = new TextBox();
+            TxtProvidersName = new TextBox();
+            TxtProvidersId = new TextBox();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabControl1.SuspendLayout();
@@ -157,6 +157,7 @@
             // 
             DgProviders.AllowUserToAddRows = false;
             DgProviders.AllowUserToDeleteRows = false;
+            DgProviders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DgProviders.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DgProviders.Location = new Point(15, 82);
             DgProviders.Name = "DgProviders";
@@ -209,56 +210,14 @@
             tabPageProvidersDetail.Text = "Providers Detail";
             tabPageProvidersDetail.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // BtnCancel
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(28, 22);
-            label3.Name = "label3";
-            label3.Size = new Size(69, 15);
-            label3.TabIndex = 0;
-            label3.Text = "Providers Id";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(28, 90);
-            label4.Name = "label4";
-            label4.Size = new Size(91, 15);
-            label4.TabIndex = 1;
-            label4.Text = "Providers Name";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(28, 170);
-            label5.Name = "label5";
-            label5.Size = new Size(123, 15);
-            label5.TabIndex = 2;
-            label5.Text = "Providers Observation";
-            // 
-            // TxtProvidersId
-            // 
-            TxtProvidersId.Location = new Point(28, 40);
-            TxtProvidersId.Name = "TxtProvidersId";
-            TxtProvidersId.Size = new Size(100, 23);
-            TxtProvidersId.TabIndex = 3;
-            // 
-            // TxtProvidersName
-            // 
-            TxtProvidersName.Location = new Point(28, 117);
-            TxtProvidersName.Name = "TxtProvidersName";
-            TxtProvidersName.PlaceholderText = "Providers Name";
-            TxtProvidersName.Size = new Size(135, 23);
-            TxtProvidersName.TabIndex = 4;
-            // 
-            // TxtProvidersObservation
-            // 
-            TxtProvidersObservation.Location = new Point(28, 188);
-            TxtProvidersObservation.Multiline = true;
-            TxtProvidersObservation.Name = "TxtProvidersObservation";
-            TxtProvidersObservation.PlaceholderText = "Providers Observation";
-            TxtProvidersObservation.Size = new Size(190, 57);
-            TxtProvidersObservation.TabIndex = 5;
+            BtnCancel.Image = Properties.Resources.cancel;
+            BtnCancel.Location = new Point(122, 252);
+            BtnCancel.Name = "BtnCancel";
+            BtnCancel.Size = new Size(96, 49);
+            BtnCancel.TabIndex = 7;
+            BtnCancel.UseVisualStyleBackColor = true;
             // 
             // BtnSave
             // 
@@ -269,14 +228,56 @@
             BtnSave.TabIndex = 6;
             BtnSave.UseVisualStyleBackColor = true;
             // 
-            // BtnCancel
+            // TxtProvidersObservation
             // 
-            BtnCancel.Image = Properties.Resources.cancel;
-            BtnCancel.Location = new Point(122, 252);
-            BtnCancel.Name = "BtnCancel";
-            BtnCancel.Size = new Size(96, 49);
-            BtnCancel.TabIndex = 7;
-            BtnCancel.UseVisualStyleBackColor = true;
+            TxtProvidersObservation.Location = new Point(28, 188);
+            TxtProvidersObservation.Multiline = true;
+            TxtProvidersObservation.Name = "TxtProvidersObservation";
+            TxtProvidersObservation.PlaceholderText = "Providers Observation";
+            TxtProvidersObservation.Size = new Size(190, 57);
+            TxtProvidersObservation.TabIndex = 5;
+            // 
+            // TxtProvidersName
+            // 
+            TxtProvidersName.Location = new Point(28, 117);
+            TxtProvidersName.Name = "TxtProvidersName";
+            TxtProvidersName.PlaceholderText = "Providers Name";
+            TxtProvidersName.Size = new Size(135, 23);
+            TxtProvidersName.TabIndex = 4;
+            // 
+            // TxtProvidersId
+            // 
+            TxtProvidersId.Location = new Point(28, 40);
+            TxtProvidersId.Name = "TxtProvidersId";
+            TxtProvidersId.Size = new Size(100, 23);
+            TxtProvidersId.TabIndex = 3;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(28, 170);
+            label5.Name = "label5";
+            label5.Size = new Size(123, 15);
+            label5.TabIndex = 2;
+            label5.Text = "Providers Observation";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(28, 90);
+            label4.Name = "label4";
+            label4.Size = new Size(91, 15);
+            label4.TabIndex = 1;
+            label4.Text = "Providers Name";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(28, 22);
+            label3.Name = "label3";
+            label3.Size = new Size(69, 15);
+            label3.TabIndex = 0;
+            label3.Text = "Providers Id";
             // 
             // ProvidersView
             // 

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Supermarket_mvp.Views
 {
-    public partial class ProvidersView : Form , IProvidersView
+    public partial class ProvidersView : Form, IProvidersView
     {
         private bool isEdit;
         private bool isSuccessful;
@@ -41,12 +41,12 @@ namespace Supermarket_mvp.Views
             get { return TxtProvidersId.Text; }
             set { TxtProvidersId.Text = value; }
         }
-        public string ProvidersName 
+        public string ProvidersName
         {
             get { return TxtProvidersName.Text; }
             set { TxtProvidersName.Text = value; }
         }
-        public string ProvidersObservation 
+        public string ProvidersObservation
         {
             get { return TxtProvidersObservation.Text; }
             set { TxtProvidersObservation.Text = value; }
@@ -56,17 +56,17 @@ namespace Supermarket_mvp.Views
             get { return TxtSearch.Text; }
             set { TxtSearch.Text = value; }
         }
-        public bool IsEdit 
+        public bool IsEdit
         {
             get { return isEdit; }
             set { isEdit = value; }
         }
-        public bool IsSuccessful 
+        public bool IsSuccessful
         {
             get { return isSuccessful; }
             set { isSuccessful = value; }
         }
-        public string Message 
+        public string Message
         {
             get { return message; }
             set { message = value; }
@@ -82,6 +82,29 @@ namespace Supermarket_mvp.Views
         public void SetProvidersListBildingSource(BindingSource providersList)
         {
             DgProviders.DataSource = providersList;
+        }
+
+        private static ProvidersView instance;
+
+        public static ProvidersView GetInstance(Form parentContainer)
+        {
+            if (instance == null || instance.IsDisposed)
+            {
+                instance = new ProvidersView();
+                instance.MdiParent = parentContainer;
+
+                instance.FormBorderStyle = FormBorderStyle.None;
+                instance.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                if (instance.WindowState == FormWindowState.Minimized)
+                {
+                    instance.WindowState = FormWindowState.Normal;
+                }
+                instance.BringToFront();
+            }
+            return instance;
         }
     }
 }
