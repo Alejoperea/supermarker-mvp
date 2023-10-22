@@ -81,9 +81,10 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(163, 34);
             label1.Name = "label1";
-            label1.Size = new Size(60, 15);
+            label1.Size = new Size(195, 50);
             label1.TabIndex = 0;
             label1.Text = "Pay Mode";
             // 

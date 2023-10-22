@@ -81,10 +81,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(134, 30);
             label1.Name = "label1";
-            label1.Size = new Size(84, 25);
+            label1.Size = new Size(160, 50);
             label1.TabIndex = 0;
             label1.Text = "Product";
             // 
@@ -212,7 +212,7 @@
             tabPageProducDetail.Location = new Point(4, 24);
             tabPageProducDetail.Name = "tabPageProducDetail";
             tabPageProducDetail.Padding = new Padding(3);
-            tabPageProducDetail.Size = new Size(605, 256);
+            tabPageProducDetail.Size = new Size(792, 322);
             tabPageProducDetail.TabIndex = 1;
             tabPageProducDetail.Text = "Product Detail";
             tabPageProducDetail.UseVisualStyleBackColor = true;
