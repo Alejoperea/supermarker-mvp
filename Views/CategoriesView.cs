@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Supermarket_mvp.Views
 {
-    public partial class CategoriesView : Form , ICategoriesView
+    public partial class CategoriesView : Form, ICategoriesView
     {
         private bool isEdit;
         private bool isSuccessful;
@@ -36,7 +36,7 @@ namespace Supermarket_mvp.Views
             };
         }
 
-        public string CategoriesId 
+        public string CategoriesId
         {
             get { return TxtCategoriesId.Text; }
             set { TxtCategoriesId.Text = value; }
@@ -46,17 +46,17 @@ namespace Supermarket_mvp.Views
             get { return TxtCategoriesName.Text; }
             set { TxtCategoriesName.Text = value; }
         }
-        public string CategoriesObservation 
+        public string CategoriesObservation
         {
             get { return TxtCategoriesObservation.Text; }
             set { TxtCategoriesObservation.Text = value; }
         }
-        public string SearchValue 
+        public string SearchValue
         {
             get { return TxtSearch.Text; }
             set { TxtSearch.Text = value; }
         }
-        public bool IsEdit 
+        public bool IsEdit
         {
             get { return isEdit; }
             set { isEdit = value; }
@@ -82,6 +82,30 @@ namespace Supermarket_mvp.Views
         public void SetCategoriesListBildingSource(BindingSource categoriesList)
         {
             DgCategories.DataSource = categoriesList;
+        }
+
+        //patron singleton
+        private static CategoriesView instance;
+
+        public static CategoriesView GetInstance(Form parentContainer)
+        {
+            if (instance == null || instance.IsDisposed)
+            {
+                instance = new CategoriesView();
+                instance.MdiParent = parentContainer;
+
+                instance.FormBorderStyle = FormBorderStyle.None;
+                instance.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                if (instance.WindowState == FormWindowState.Minimized)
+                {
+                    instance.WindowState = FormWindowState.Normal;
+                }
+                instance.BringToFront();
+            }
+            return instance;
         }
     }
 }
