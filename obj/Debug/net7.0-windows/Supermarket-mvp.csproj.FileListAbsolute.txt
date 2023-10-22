@@ -44,3 +44,4 @@ C:\Users\milal\OneDrive\Escritorio\Lenguaje Informatico\Supermarket-mvp\obj\Debu
 C:\Users\milal\OneDrive\Escritorio\Lenguaje Informatico\Supermarket-mvp\obj\Debug\net7.0-windows\Supermarket_mvp.Views.MainView.resources
 C:\Users\milal\OneDrive\Escritorio\Lenguaje Informatico\Supermarket-mvp\obj\Debug\net7.0-windows\Supermarket_mvp.Views.ProductView.resources
 C:\Users\milal\OneDrive\Escritorio\Lenguaje Informatico\Supermarket-mvp\obj\Debug\net7.0-windows\Supermarket_mvp.Views.ProvidersView.resources
+C:\Users\milal\OneDrive\Escritorio\Lenguaje Informatico\Supermarket-mvp\obj\Debug\net7.0-windows\Supermarket_mvp.Views.CategoriesView.resources

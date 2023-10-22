@@ -36,6 +36,61 @@ namespace Supermarket_mvp.Views
                     SearchEvent?.Invoke(this, EventArgs.Empty);
                 }
             };
+
+            BtnNew.Click += delegate
+            {
+                AddNewEvent?.Invoke(this, EventArgs.Empty);
+
+                tabControl1.TabPages.Remove(tabPageCategoriesList);
+                tabControl1.TabPages.Add(tabPageCategoriesDetail);
+                tabPageCategoriesDetail.Text = "Add New Categories"; // cambia el titulo de la pestalla
+
+            };
+            BtnEdit.Click += delegate
+            {
+                EditEvent?.Invoke(this, EventArgs.Empty);
+
+                tabControl1.TabPages.Remove(tabPageCategoriesList);
+                tabControl1.TabPages.Add(tabPageCategoriesDetail);
+                tabPageCategoriesDetail.Text = "Edit Categories"; // cambia el titulo de la pestalla
+
+            };
+
+            BtnDelete.Click += delegate
+            {
+                DeleteEvent?.Invoke(this, EventArgs.Empty);
+                var result = MessageBox.Show(
+                   "Are you sure you went to delete the selected Categories",
+                   "Warning",
+                   MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    DeleteEvent?.Invoke(this, EventArgs.Empty);
+                    MessageBox.Show(Message);
+                }
+            };
+
+            BtnSave.Click += delegate
+            {
+                SaveEvent?.Invoke(this, EventArgs.Empty);
+
+                if (isSuccessful) // si grabrar fue exitoso 
+                {
+                    tabControl1.TabPages.Remove(tabPageCategoriesList);
+                    tabControl1.TabPages.Add(tabPageCategoriesList);
+                }
+                MessageBox.Show(Message);
+            };
+
+            BtnCancel.Click += delegate
+            {
+                CancelEvent?.Invoke(this, EventArgs.Empty);
+
+                tabControl1.TabPages.Remove(tabPageCategoriesDetail);
+                tabControl1.TabPages.Add(tabPageCategoriesList);
+
+            };
         }
 
         public string CategoriesId

@@ -58,27 +58,91 @@ namespace Supermarket_mvp.Presenters
 
         private void AddNewCategories(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            view.IsEdit = false;
+            //MessageBox.Show("Hizo Clic en el boton nuevo");
         }
 
         private void LoadSelectCategoriesToEdit(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            // se obtiene el objeto del datagridview que se encuntran selecionado 
+            var categoriesMode = (CategoriesModel)categoriesBindingSource.Current;
+
+            //se cambia el contenido de las cajas de texto por el objeto recuperado 
+            // del datagrie
+            view.CategoriesId = categoriesMode.Id.ToString();
+            view.CategoriesName = categoriesMode.Name;
+            view.CategoriesName = categoriesMode.Observation;
+
+            // se establece el modo como edificion 
+            view.IsEdit = true;
         }
 
         private void DeleteSelectedCategories(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            try
+            // se recupera el objeto de la fila seleccionada del datagri
+            {
+                var categoriesMode = (CategoriesModel)categoriesBindingSource.Current;
+                // se invoca el metodo delete del repositorio pasandole el Id del Pay Mode
+                repository.Delete(categoriesMode.Id);
+                view.IsSuccessful = true;
+                view.Message = "Categories deleted successfully";
+                loadAllCategoriesList();
+            }
+            catch (Exception ex)
+            {
+
+                view.IsSuccessful = false;
+                view.Message = "An error ocurred, could not deleted categories";
+            }
         }
 
         private void SaveCategories(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            // se crea un objeto de la clase paymode y se asigan los datos 
+            // de las cajas de texto de la vista 
+            var categoriesMode = new CategoriesModel();
+            categoriesMode.Id = Convert.ToInt32(view.CategoriesId);
+            categoriesMode.Name = view.CategoriesName;
+            categoriesMode.Observation = view.CategoriesObservation;
+
+            try
+            {
+                new Common.ModelDataValidation().Validate(categoriesMode);
+                if (view.IsEdit)
+                {
+                    repository.Edit(categoriesMode);
+                    view.Message = "Categories edited successfuly";
+                }
+                else
+                {
+                    repository.Add(categoriesMode);
+                    view.Message = "Categories added successfuly";
+                }
+                view.IsSuccessful = true;
+                loadAllCategoriesList();
+                CleanViewFields();
+            }
+            catch (Exception ex)
+            {
+
+                // si ocurre una excepcion se configura IsSuccesfull en false 
+                // y la propiedad Message de la vista se asigna de la exception
+                view.IsSuccessful = false;
+                view.Message = ex.Message;
+            }
+        }
+
+        private void CleanViewFields()
+        {
+            view.CategoriesId = "0";
+            view.CategoriesName = "";
+            view.CategoriesObservation = "";
         }
 
         private void CancelAction(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            CleanViewFields();
         }
     }
 }
